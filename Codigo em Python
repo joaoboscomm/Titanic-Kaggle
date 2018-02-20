@@ -1,0 +1,27 @@
+#PARTE 1 - IMPORTAÇÃO DE LIBS IMPORTANTES
+
+%matplotlib inline
+import pandas as pd #Criação e Manipulação de DataFrames
+import numpy as np #Biblioteca utilização algébrica
+import seaborn as sns #Criação e plotagem de graficos diferenciados
+import matplotlib.pyplot as plt #Plots
+import random #Auxiliar em valores randomicos
+
+#PARTE 2 - IMPORTAÇÃO DE DADOS
+
+titanic = pd.read_csv('titanic_data.csv') #usar lib panda para ler o csv que contem os dados.
+print('\n *** Informações Basicas do Dataset *** \n - Linhas: %s \n - Colunas: %s' % (titanic.shape[0], titanic.shape[1]))
+titanic.head()
+
+#PARTE 3 - LIMPEZA DE DADOS QUE NÃO SERÃO UTILIZADOS
+
+#Retirar as colunas que não serão utilizadas nessa analise
+titanic.drop(['Ticket','Cabin','PassengerId'], axis=1, inplace = True)
+titanic.head() #Mostrar tabela sem os dados desncessários
+
+#PARTE 4 - FACILITAR VISUALIZAÇÃO E ENTENDIMENTO DO DATASET PARA QUALQUER LEITOR
+
+titanic.columns = ['Sobreviveu?','Classe','Nome','Sexo','Idade','Irmãos/Cônjuge','Pais/Crianças','Tarifa','Embarque']
+titanic.head()#Visualizar resultado
+
+#PARTE 5 - 
